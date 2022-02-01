@@ -11,7 +11,7 @@ const filepath = path.join(__dirname, 'data.json')
 
 const fsPromises = require('fs').promises
 
-router.get('/Home', (req, res) => {
+router.get('/', (req, res) => {
   fsPromises.readFile(filepath, 'utf-8')
     .then((data) => {
       const result = JSON.parse(data)
@@ -38,7 +38,11 @@ router.get('/puppies/:id', (req, res) => {
       //   console.log(result)
       //   console.log(result.puppies[1])
 
-      res.render('details', result.puppies[req.params.id - 1])
+      res.render('details', result.puppies.find(puppy => puppy.id === Number(req.params.id)))
+
+      // below is buggy - use line above instead
+      // res.render('details', result.puppies[req.params.id - 1])
+
       return null
     })
 
@@ -52,13 +56,13 @@ router.get('/puppies/:id', (req, res) => {
 router.get('/puppies/:id/edit', (req, res) => {
   // console.log('param', req.params.id)
 
-  const id = Number(req.params.id - 1)
+  const id = Number(req.params.id)
 
   fsPromises.readFile(filepath, 'utf-8')
     .then((data) => {
       const result = JSON.parse(data)
 
-      res.render('edit', result.puppies[id])
+      res.render('edit', result.puppies.find(puppy => puppy.id === Number(req.params.id)))
       return null
     })
     .catch(err => {
