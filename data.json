@@ -1,11 +1,11 @@
 {
   "puppies": [
     {
-      "id": 1,
-      "name": "Fido",
+      "name": "Fidoee",
+      "breed": "Labrador",
       "owner": "Fred",
       "image": "/images/puppy1.jpg",
-      "breed": "Labrador"
+      "id": 1
     },
     {
       "id": 2,
