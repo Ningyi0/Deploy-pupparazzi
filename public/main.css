@@ -50,3 +50,21 @@ body {
   align-items: center;
   font-family: 'Roboto', sans-serif;
 }
+
+/* Tablet */
+@media only screen and (min-width: 321px) and (max-width: 768px){
+  body{
+  background-color: rgb(60, 125, 230);
+  color: #fff;
+  a: #fff;
+}
+}
+
+/* Mobile */
+
+@media only screen and (max-width: 320px){
+  
+body{
+  background-color: rgb(189, 219, 209);
+}
+}
