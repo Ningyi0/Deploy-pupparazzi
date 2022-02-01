@@ -17,6 +17,7 @@ server.set('view engine', 'hbs')
 // Your routes/router(s) should go here
 server.use('/', pupRoute)
 
+// to show stupid pups on homepage
 server.get('/', (req, res) => {
   fsPromises
     .readFile('data.json', 'utf8')
