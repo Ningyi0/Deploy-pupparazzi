@@ -6,7 +6,7 @@
   "author": "EDA",
   "license": "ISC",
   "scripts": {
-    "start": "node index",
+    "start": "nodemon index",
     "dev": "nodemon index --ignore data.json",
     "lint": "eslint .",
     "test": "jest --watchAll"
@@ -26,6 +26,9 @@
     "watchPathIgnorePatterns": [
       "data.json"
     ]
+  },
+  "engines": {
+    "node": "16.x"
   },
   "dependencies": {
     "express": "^4.17.1",
