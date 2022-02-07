@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const fs = require('fs/promises')
 
-
 router.get('/:id', (req, res) => {
   // console.log('this is the unpassed number', req.params.id, typeof (req.params.id));
   const index = parseInt(req.params.id) - 1
@@ -68,9 +67,9 @@ router.post('/:id/edit', (req, res) => {
     })
     .then(parsedpuppyData => {
       const foundPuppy = parsedpuppyData.puppies[index]
-      console.log("this is the found puppy data", foundPuppy);
+      console.log('this is the found puppy data', foundPuppy);
 
-      foundPuppy.id = req.body.id,
+        foundPuppy.id = req.body.id,
         foundPuppy.name = req.body.name,
         foundPuppy.owner = req.body.owner,
         foundPuppy.image = req.body.image,
@@ -87,7 +86,6 @@ router.post('/:id/edit', (req, res) => {
       console.log(err)
     })
   res.redirect(`/puppies/${req.params.id}`)
-
 })
 
 module.exports = router
